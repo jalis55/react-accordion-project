@@ -30,29 +30,59 @@ const Accordion = () => {
     console.log(multipleSelectedId);
 
     return (
-        <div className="acc-wrapper">
-            <button onClick={() => setEnableMultiSelection(!enableMutiSelection)}>Enable multiSelection</button>
+        // <div className="acc-wrapper">
+        //     <button onClick={() => setEnableMultiSelection(!enableMutiSelection)}>Enable multiSelection</button>
+        //     <div className="accordion">
+        //         {
+        //             data && data.length > 0 ?
+        //                 data.map((dataItem) => <div className='item'>
+        //                     <div onClick={() => enableMutiSelection ? handleMultiSelection(dataItem.id) : handleSelected(dataItem.id)} className="title">
+        //                         <h3>{dataItem.question}</h3>
+        //                         <span>+</span>
+        //                     </div>
+        //                     {enableMutiSelection ? 
+        //                         multipleSelectedId.indexOf(dataItem.id) !==-1 &&
+        //                         (<div className="acc-content">{dataItem.answer}</div>)
+        //                         : selectedId === dataItem.id ?
+        //                             <div className="acc-content">{dataItem.answer}</div>
+        //                             : null
+        //                     }
+        //                     {/* {selectedId === dataItem.id ?
+        //                         <div className="acc-content">{dataItem.answer}</div>
+        //                         : null} */}
+        //                 </div>)
+        //                 : <div>Data not found</div>
+        //         }
+        //     </div>
+        // </div>
+        <div className='cc-wrapper'>
+            <button>Enable Multiselection</button>
             <div className="accordion">
-                {
-                    data && data.length > 0 ?
-                        data.map((dataItem) => <div className='item'>
-                            <div onClick={() => enableMutiSelection ? handleMultiSelection(dataItem.id) : handleSelected(dataItem.id)} className="title">
+                {data && data.length > 0
+                    ? data.map((dataItem) =>
+                        <div className="item">
+                            <div className='title'  onClick={() => enableMutiSelection ? handleMultiSelection(dataItem.id) : handleSelected(dataItem.id)}>
                                 <h3>{dataItem.question}</h3>
                                 <span>+</span>
                             </div>
-                            {enableMutiSelection ? 
+
+                            <div className="acc-content">
+                             {enableMutiSelection ? 
                                 multipleSelectedId.indexOf(dataItem.id) !==-1 &&
-                                <div className="acc-content">{dataItem.answer}</div>
+                                (<div className="acc-content">{dataItem.answer}</div>)
                                 : selectedId === dataItem.id ?
-                                    <div className="acc-content">{dataItem.answer}</div>
+                                    <div className="acc-content">
+                                        <p>{dataItem.answer}</p>
+                                        </div>
                                     : null
                             }
-                            {selectedId === dataItem.id ?
-                                <div className="acc-content">{dataItem.answer}</div>
-                                : null}
-                        </div>)
-                        : <div>Data not found</div>
+                            </div>
+                        </div>
+                    )
+                    : null
                 }
+
+
             </div>
         </div>
     )
