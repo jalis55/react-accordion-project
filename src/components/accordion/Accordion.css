@@ -1,13 +1,19 @@
+
 .cc-wrapper{
     display: flex;
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    /* width: 100vw; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+    
+
 }
 .cc-wrapper button{
-    margin: 4px 0px;
+    padding: 10px 20px;
+    
 }
 
 .accordion{
@@ -30,8 +36,5 @@
     height: auto;
 }
 
-.acc-content p{
-    background-color: rgb(228, 211, 190);
-    text-align: justify;
-}
+
 
